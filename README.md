@@ -16,7 +16,7 @@ Authentication: Sessions / JWT + Cookies
 Templating: EJS
 ⚙️ Installation
 # 1. Clone the repository
-git clone https://github.com/insearchof-incredible/Blogify-Fullstack.git
+git clone https://github.com/TheAmanjeetkashyap/Blogify-Fullstack.git
 cd blogify-fullstack
 
 # 2. Install dependencies
