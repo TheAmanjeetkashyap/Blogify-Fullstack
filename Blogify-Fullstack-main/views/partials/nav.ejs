@@ -1,0 +1,81 @@
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3">
+  <div class="container">
+    <!-- Brand with emoji and styled text -->
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/">
+      <span class="fs-4">💡 <span class="text-info">Blog</span><span class="text-danger">ify</span></span>
+    </a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav links -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+
+        <!-- Home link -->
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+
+        <% if (locals.user) { %>
+          <!-- Add Blog -->
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-1" href="/blog/add-new">
+              <i class="bi bi-pencil-square"></i> <span>Add Blog</span>
+            </a>
+          </li>
+
+          <!-- Profile Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <img
+                src="/images/header.png"
+                width="35"
+                height="35"
+                class="rounded-circle border"
+                alt="Profile Image"
+              >
+              <span class="fw-medium"><%= locals.user.fullName %></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end mt-2 shadow-sm" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="/user/logout">
+                  <i class="bi bi-box-arrow-right me-2"></i> Log out
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        <% } else { %>
+          <!-- Create Account -->
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-1" href="/user/signup">
+              <i class="bi bi-person-plus"></i> <span>Create Account</span>
+            </a>
+          </li>
+
+          <!-- Sign In -->
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-1" href="/user/signin">
+              <i class="bi bi-box-arrow-in-right"></i> <span>Sign In</span>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Error Alert (if any) -->
+<% if (locals.error) { %>
+  <div class="container mt-4">
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+      <%= locals.error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+<% } %>

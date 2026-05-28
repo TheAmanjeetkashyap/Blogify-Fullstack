@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <title>Sign Up</title>
+  <style>
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+  <%- include('./partials/nav') %>
+
+  <div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="card p-4 shadow-lg border-0 rounded-4" style="max-width: 500px; width: 100%;">
+      <div class="form-title">📝 Create Your Account</div>
+
+      <form action="/user/signup" method="post">
+        <!-- Full Name -->
+        <div class="mb-3">
+          <label for="exampleFullName" class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="fullName" id="exampleFullName" aria-describedby="fullName" required>
+          <div id="NameHelp" class="form-text">What’s your full name? We’ll use it on your profile.</div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email Address</label>
+          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
+          <div id="passwordHelp" class="form-text">Make it strong, like your coffee ☕</div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-person-plus-fill me-1"></i> Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <%- include('./partials/scripts') %>
+</body>
+</html>

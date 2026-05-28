@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Add New Blog Page</title>
+    <style>
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #0d6efd;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="container form-container">
+        <div class="card shadow-lg border-0 rounded-4 p-4">
+            <div class="form-title">📘 Share a New Blog</div>
+            <form action="/blog" method="post" enctype="multipart/form-data">
+                <!-- Blog Title -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Blog Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter a catchy title" required>
+                </div>
+
+                <!-- Cover Image -->
+                <div class="mb-3">
+                    <label for="coverImage" class="form-label">Cover Image</label>
+                    <input type="file" class="form-control" id="coverImage" name="coverImage" accept="image/*" required>
+                </div>
+
+                <!-- Blog Body -->
+                <div class="mb-4">
+                    <label for="floatingTextarea2" class="form-label">Write Your Blog</label>
+                    <textarea class="form-control" id="floatingTextarea2" name="body" rows="6" placeholder="Start writing your blog here..." required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg shadow-sm" type="submit">
+                        <i class="bi bi-upload me-1"></i> Share Now
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>
